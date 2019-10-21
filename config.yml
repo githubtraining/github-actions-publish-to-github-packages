@@ -1,0 +1,19 @@
+title: Using GitHub Actions for CD
+tagline: A brand new course on Learning Lab
+description: >-
+  This course will walk you through using GitHub Actions to get your code in a
+  deployable state once your CI workflows have completed.
+template:
+  repo: using-github-actions-for-cd-template
+  name: using-github-actions-for-cd
+before:
+  - type: createIssue
+    title: Welcome!
+    body: new-issue.md
+steps:
+  - title: First step
+    description: The first step in your course
+    event: issues.assigned
+    link: '{{ repoUrl }}'
+    actions:
+      - type: closeIssue
