@@ -1,5 +1,5 @@
 title: Using GitHub Actions for CD
-tagline: A brand new course on Learning Lab
+tagline: Automate CD with GitHub Actions
 description: >-
   This course will walk you through using GitHub Actions to get your code in a
   deployable state once your CI workflows have completed.
@@ -7,13 +7,132 @@ template:
   repo: using-github-actions-for-cd-template
   name: using-github-actions-for-cd
 before:
-  - type: createIssue
-    title: Welcome!
-    body: new-issue.md
+  - type: createPullRequest
+    title: Setting Up CI
+    body: 00.0_Setup-CI.md
+    head: ci-workflow
+    comments:
+      - 00.1_First-CI-Comment.md
+
+#########################################################################
+#               Setting up CI from Previous Workshop                    #
+#               Tasks:                                                  #
+#               - Move CI workflow to proper location                   #
+#               - Verify Workflow location                              #
+#               - Merge PR                                              #
+#               - Open New PR                                           #
+#               - Link to new PR in comment so they can easily find it  #
+#########################################################################
+
 steps:
-  - title: First step
-    description: The first step in your course
-    event: issues.assigned
-    link: '{{ repoUrl }}'
+  - title: Location Location Location
+    description: Place the CI workflow file in the proper directory
+    event: pull_request.synchronize
+    # link: "{{ repoUrl }}"
     actions:
+      - type: getTree
+        action_id: tree
+        recursive: true
+        sha: "%payload.pull_request.head.sha%"
+      - type: gate
+        left: "%actions.tree.data.tree%"
+        operator: includes
+        right: "path:.github/workflows/ci-workflow.yml"
+        else:
+          - type: respond
+            with: 00.2_CI-Workflow-Fail.md
+      - type: mergePullRequest
+      - type: createPullRequest
+        title: Docker Workflow
+        body: 01.0_Building-Docker-Images.md
+        head: docker-workflow
+        action_id: docker-workflow-pr
+        data:
+          workflowUrl: "%payload.repository.html_url%/edit/master/.github/workflows/nodejs.yml"
+        comments:
+          - 01.1_Docker-Workflow.md
+      - type: respond
+        with: 00.4_Next-Pull.md
+        data:
+          pullURL: "%actions.docker-workflow-pr.data.html_url%"
+
+  #########################################################################
+  #               Place Application in GPR as Docker Image                #
+  #               Tasks:                                                  #
+  #               - Configure Docker Secrets                              #
+  #               - Write Workflow to Build Docker Image                  #
+  #               - Create Dockerfile for application                     #
+  #               - Have CI run on change                                 #
+  #               - If CI passes trigger CD                               #
+  #               - Push Dokger image to GPR                              #
+  #               - Pull and run Docker image locally                     #
+  #########################################################################
+
+  - title: Configuring Our CD Flow
+    description: Building Our Docker Workflow and Secrets Config
+    event: pull_request.synchronize
+    actions:
+      - type: getTree
+        action_id: tree
+        recursive: true
+        sha: "%payload.pull_request.head.sha%"
+      - type: gate
+        left: "%actions.tree.data.tree%"
+        operator: includes
+        right: "path:.github/workflows/docker-workflow.yml"
+        else:
+          - type: respond
+            with: 01.2_Docker-Workflow-Fail.md
+      - type: mergePullRequest
+      - type: createPullRequest
+        title: Add a Dockerfile
+        body: Dockerfile.md
+        head: add-dockerfile
+        comments:
+          - 01.3_Configure-Dockerfile.md
+      - type: respond
+        with: 00.4_Next-Pull.md
+        data:
+          pullURL: "%actions.docker-workflow-pr.data.html_url%"
+
+  ############################################################
+  ############################################################
+  - title: Triggering Our Pipeline
+    description: some desc #Need to sort this out
+    event: pull_request.synchronize
+    actions:
+      - type: respond
+        with: 01.4_Trigger-Docker-Build.md
+
+  - title: Viewing The Workflow
+    description: Verify if the Docker workflow was successful or not
+    event: check_suit.completed
+    # gate the payload to validate success
+    actions:
+      - type: gate
+        left: "%payload.check_suite.conclusion%"
+        operator: ===
+        right: "success"
+        else:
+          - type: respond
+            with: 01.5_Check-Suite-Fail.md
+      - type: respond
+        with: 01.6_Success.md
+      - type: mergePullRequest
+
+  - title: Using the Image
+    description: run our image locally
+    event: pull_request.closed
+    actions:
+      - type: createIssue
+        title: Consuming The Newly Created Docker Image
+        body: 02.0_Pull-Run-Image.md
+      - type: respond
+        with: 02.1_Docker-Login.md
+      - type: respond
+        with: 02.2_Docker-Pull.md
+      - type: respond
+        with: 02.3_Docker-Run.md
+      - type: respond
+        with: Done.md
       - type: closeIssue
