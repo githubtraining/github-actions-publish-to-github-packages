@@ -43,8 +43,9 @@ steps:
         action_id: dockerworkflowpr
         data:
           workflowUrl: "%payload.repository.html_url%/edit/master/.github/workflows/ci-workflow.yml" #not working
-        comments:
-          - 01.1_Docker-Workflow.md
+      - type: respond
+        with: 01.1_Docker-Workflow.md
+        issue: Docker Workflow
       - type: respond
         with: 00.4_Next-Pull.md
         data:
@@ -104,8 +105,10 @@ steps:
         else:
           - type: respond
             with: 01.5_Check-Suite-Fail.md
+            issue: Add a Dockerfile
       - type: respond
         with: 01.6_Success.md
+        issue: Add a Dockerfile
       ############################################################
       # The above bug breaks everything below this line, even when
       # Manually merging or closing the PR
@@ -118,6 +121,8 @@ steps:
     description: run our image locally
     event: pull_request.closed
     actions:
+      - type: gate
+        left: "%payload.pull_request.merged%"
       - type: createIssue
         title: Consuming The Newly Created Docker Image
         body: 02.0_Pull-Run-Image.md
