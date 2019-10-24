@@ -112,13 +112,26 @@ steps:
     event: check_suite.completed
     actions:
       - type: gate
-        left: "%payload.check_suite.conclusion%"
-        operator: ===
-        right: "success"
+        gates:
+          - left: "%payload.check_suite.conclusion%"
+            operator: ===
+            right: "success"
+          - left: "%payload.check_suite.head_branch%"
+            operator: ===
+            right: "add-dockerfile"
+        every: true
         else:
           - type: respond
             with: 01.5_Check-Suite-Fail.md
             issue: Add a Dockerfile
+      # - type: gate
+      #   left: "%payload.check_suite.conclusion%"
+      #   operator: ===
+      #   right: "success"
+      #   else:
+      #     - type: respond
+      #       with: 01.5_Check-Suite-Fail.md
+      #       issue: Add a Dockerfile
 
       - type: respond
         with: 01.6_Success.md
@@ -156,3 +169,16 @@ steps:
   #     - type: respond
   #       with: Done.md
   #     - type: closeIssue
+  # - type: gate
+  #   gates:
+  #     - left: "%payload.check_suite.conclusion%"
+  #       operator: ===
+  #       right: "success"
+  #     - left: "%payload.check_suite.head_branch%"
+  #       operator: ===
+  #       right: "add-dockerfile"
+  #   every: true
+  #   else:
+  #     - type: respond
+  #       with: 01.5_Check-Suite-Fail.md
+  #       issue: Add a Dockerfile
