@@ -123,6 +123,7 @@ steps:
       # Manually merging or closing the PR
       ############################################################
       - type: mergePullRequest
+        pullRequest: Add a Dockerfile
       - type: deleteBranch
         branch: add-dockerfile
 
