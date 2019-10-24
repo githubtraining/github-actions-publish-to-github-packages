@@ -23,6 +23,7 @@ steps:
         action_id: tree
         recursive: true
         sha: "%payload.pull_request.head.sha%"
+
       - type: gate
         left: "%actions.tree.data.tree%"
         operator: includes
@@ -30,12 +31,16 @@ steps:
         else:
           - type: respond
             with: 00.2_CI-Workflow-Fail.md
+
       - type: mergePullRequest
+
       - type: deleteBranch
         branch: ci-workflow
+
       - type: mergeBranch
         head: master
         base: docker-workflow
+
       - type: createPullRequest
         title: Docker Workflow
         body: 01.0_Building-Docker-Images.md
@@ -43,9 +48,12 @@ steps:
         action_id: dockerworkflowpr
         data:
           workflowUrl: "%payload.repository.html_url%/edit/master/.github/workflows/ci-workflow.yml" #not working
+
       - type: respond
         with: 01.1_Docker-Workflow.md
-        issue: Docker Workflow
+        # issue: Docker Workflow
+        issue: 2
+
       - type: respond
         with: 00.4_Next-Pull.md
         issue: 1
