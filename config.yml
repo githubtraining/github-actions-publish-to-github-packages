@@ -14,16 +14,6 @@ before:
     comments:
       - 00.1_First-CI-Comment.md
 
-#########################################################################
-#               Setting up CI from Previous Workshop                    #
-#               Tasks:                                                  #
-#               - Move CI workflow to proper location                   #
-#               - Verify Workflow location                              #
-#               - Merge PR                                              #
-#               - Open New PR                                           #
-#               - Link to new PR in comment so they can easily find it  #
-#########################################################################
-
 steps:
   - title: Location Location Location
     description: Place the CI workflow file in the proper directory
@@ -59,18 +49,6 @@ steps:
         with: 00.4_Next-Pull.md
         data:
           pullURL: "%actions.dockerworkflowpr.data.html_url%"
-
-  #########################################################################
-  #               Place Application in GPR as Docker Image                #
-  #               Tasks:                                                  #
-  #               - Configure Docker Secrets                              #
-  #               - Write Workflow to Build Docker Image                  #
-  #               - Create Dockerfile for application                     #
-  #               - Have CI run on change                                 #
-  #               - If CI passes trigger CD                               #
-  #               - Push Dokger image to GPR                              #
-  #               - Pull and run Docker image locally                     #
-  #########################################################################
 
   - title: Configuring Our CD Flow
     description: Building Our Docker Workflow and Secrets Config
@@ -112,14 +90,15 @@ steps:
       - type: respond
         with: 01.4_Trigger-Docker-Build.md
   ############################################################
+  # Somehow this is currently failingview image here https://i.imgur.com/CQw4fhy.png
+  # Looks to be something with a 'respond' type not triggering properly
   ############################################################
   - title: Viewing The Workflow
     description: Verify if the Docker workflow was successful or not
     event: check_suite.completed
-    # gate the payload to validate success
     actions:
       - type: gate
-        left: "%payload.check_suite.conclusion%" #This is currently failing somehow
+        left: "%payload.check_suite.conclusion%"
         operator: ===
         right: "success"
         else:
@@ -128,6 +107,8 @@ steps:
       - type: respond
         with: 01.6_Success.md
       ############################################################
+      # The above bug breaks everything below this line, even when
+      # Manually merging or closing the PR
       ############################################################
       - type: mergePullRequest
       - type: deleteBranch
