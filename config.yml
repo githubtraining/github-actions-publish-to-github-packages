@@ -47,8 +47,9 @@ steps:
         head: docker-workflow
         action_id: dockerworkflowpr
         data:
-          workflowUrl: "%payload.repository.html_url%/edit/master/.github/workflows/ci-workflow.yml" #not working
-
+          workflowUrl: "%payload.repository.html_url%/edit/master/.github/workflows/ci-workflow.yml"
+        # workflowUrl sill not accessible in response below
+        # respond also breaks if a use a title vs number
       - type: respond
         with: 01.1_Docker-Workflow.md
         # issue: Docker Workflow
@@ -68,6 +69,7 @@ steps:
         action_id: tree
         recursive: true
         sha: "%payload.pull_request.head.sha%"
+
       - type: gate
         left: "%actions.tree.data.tree%"
         operator: includes
@@ -75,12 +77,16 @@ steps:
         else:
           - type: respond
             with: 01.2_Docker-Workflow-Fail.md
+
       - type: mergePullRequest
+
       - type: deleteBranch
         branch: docker-workflow
+
       - type: mergeBranch
         head: master
         base: add-dockerfile
+
       - type: createPullRequest
         title: Add a Dockerfile
         body: Dockerfile.md
@@ -88,6 +94,7 @@ steps:
         action_id: dockerfile
         comments:
           - 01.3_Configure-Dockerfile.md
+
       - type: respond
         with: 00.4_Next-Pull.md
         data:
@@ -99,10 +106,7 @@ steps:
     actions:
       - type: respond
         with: 01.4_Trigger-Docker-Build.md
-  ############################################################
-  # Somehow this is currently failingview image here https://i.imgur.com/CQw4fhy.png
-  # Looks to be something with a 'respond' type not triggering properly
-  ############################################################
+
   - title: Viewing The Workflow
     description: Verify if the Docker workflow was successful or not
     event: check_suite.completed
@@ -115,33 +119,40 @@ steps:
           - type: respond
             with: 01.5_Check-Suite-Fail.md
             issue: Add a Dockerfile
+
       - type: respond
         with: 01.6_Success.md
         issue: Add a Dockerfile
-      ############################################################
-      # The above bug breaks everything below this line, even when
-      # Manually merging or closing the PR
-      ############################################################
+
       - type: mergePullRequest
         pullRequest: Add a Dockerfile
+
       - type: deleteBranch
         branch: add-dockerfile
 
-  - title: Using the Image
-    description: run our image locally
-    event: pull_request.closed
-    actions:
-      - type: gate
-        left: "%payload.pull_request.merged%"
       - type: createIssue
         title: Consuming The Newly Created Docker Image
         body: 02.0_Pull-Run-Image.md
-      - type: respond
-        with: 02.1_Docker-Login.md
-      - type: respond
-        with: 02.2_Docker-Pull.md
-      - type: respond
-        with: 02.3_Docker-Run.md
-      - type: respond
-        with: Done.md
-      - type: closeIssue
+        comments:
+          - 02.1_Docker-Login.md
+          - 02.2_Docker-Pull.md
+          - 02.3_Docker-Run.md
+          - Done.md
+  # - title: Using the Image
+  #   description: run our image locally
+  #   event: pull_request.closed
+  #   actions:
+  #     - type: gate
+  #       left: "%payload.pull_request.merged%"
+  #     - type: createIssue
+  #       title: Consuming The Newly Created Docker Image
+  #       body: 02.0_Pull-Run-Image.md
+  #     - type: respond
+  #       with: 02.1_Docker-Login.md
+  #     - type: respond
+  #       with: 02.2_Docker-Pull.md
+  #     - type: respond
+  #       with: 02.3_Docker-Run.md
+  #     - type: respond
+  #       with: Done.md
+  #     - type: closeIssue
