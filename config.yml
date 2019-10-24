@@ -28,7 +28,6 @@ steps:
   - title: Location Location Location
     description: Place the CI workflow file in the proper directory
     event: pull_request.synchronize
-    # link: "{{ repoUrl }}"
     actions:
       - type: getTree
         action_id: tree
@@ -57,7 +56,7 @@ steps:
       - type: respond
         with: 00.4_Next-Pull.md
         data:
-          pullURL: "%actions.dockerworkflowpr.data.html_url%" # points to pull/1 I need it to point to pull/2
+          pullURL: "%actions.dockerworkflowpr.data.html_url%"
 
   #########################################################################
   #               Place Application in GPR as Docker Image                #
@@ -105,7 +104,7 @@ steps:
   ############################################################
   ############################################################
   - title: Triggering Our Pipeline
-    description: some desc #Need to sort this out
+    description: Time to see the magic happen
     event: pull_request.synchronize
     actions:
       - type: respond
@@ -117,7 +116,7 @@ steps:
     # gate the payload to validate success
     actions:
       - type: gate
-        left: "%payload.check_suite.conclusion%"
+        left: "%payload.check_suite.conclusion%" #This is currently failing somehow
         operator: ===
         right: "success"
         else:
