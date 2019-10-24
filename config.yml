@@ -135,7 +135,7 @@ steps:
 
   - title: Using the Image
     description: run our image locally
-    event: pull_request.merged
+    event: pull_request.closed
     actions:
       - type: createIssue
         title: Consuming The Newly Created Docker Image
