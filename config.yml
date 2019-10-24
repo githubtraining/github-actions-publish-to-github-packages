@@ -42,6 +42,9 @@ steps:
           - type: respond
             with: 00.2_CI-Workflow-Fail.md
       - type: mergePullRequest
+      - type: mergeBranch
+        head: master
+        base: docker-workflow
       - type: createPullRequest
         title: Docker Workflow
         body: 01.0_Building-Docker-Images.md
@@ -51,11 +54,11 @@ steps:
           workflowUrl: "%payload.repository.html_url%/edit/master/.github/workflows/nodejs.yml"
         comments:
           - 01.1_Docker-Workflow.md
-      - type: octokit
-        method: pulls.updateBranch
-        pull_number: "%actions.docker_workflow_pr.data.pull_request.number%"
-        repo: "%actions.docker_workflow_pr.data.pull_request.repo.name%"
-        owner: "%actions.docker_worfklow_pr.data.pull_request.repo.owner.login%"
+      # - type: octokit
+      #   method: pulls.updateBranch
+      #   pull_number: "%actions.docker_workflow_pr.data.pull_request.number%"
+      #   repo: "%actions.docker_workflow_pr.data.pull_request.repo.name%"
+      #   owner: "%actions.docker_worfklow_pr.data.pull_request.repo.owner.login%"
       - type: respond
         with: 00.4_Next-Pull.md
         data:
