@@ -19,6 +19,7 @@ steps:
   - title:  Move the workflow file
     description: Place the CI workflow file in the proper directory.
     event: pull_request.synchronize
+    link: {{ repoUrl }}/pull/1
     actions:
       - type: getTree
         action_id: tree
