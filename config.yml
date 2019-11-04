@@ -9,7 +9,7 @@ template:
 before:
   - type: createPullRequest
     title: Setting Up CI
-    body: 00.0_Setup-CI.md
+    body: 00_Setup-CI.md
     head: ci-workflow
     comments:
       - 00.1_First-CI-Comment.md
