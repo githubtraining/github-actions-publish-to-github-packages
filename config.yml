@@ -15,8 +15,9 @@ before:
       - 00.1_First-CI-Comment.md
 
 steps:
-  - title: Location Location Location
-    description: Place the CI workflow file in the proper directory
+  # step 1
+  - title:  Move the workflow file
+    description: Place the CI workflow file in the proper directory.
     event: pull_request.synchronize
     actions:
       - type: getTree
@@ -61,8 +62,9 @@ steps:
         data:
           pullURL: "%actions.dockerworkflowpr.data.html_url%"
 
-  - title: Configuring Our CD Flow
-    description: Building Our Docker Workflow and Secrets Config
+  # step 2
+  - title: Edit the workflow file
+    description: Build the Docker workflow and 'secrets' configuration.
     event: pull_request.synchronize
     actions:
       - type: getTree
@@ -100,15 +102,17 @@ steps:
         data:
           pullURL: "%actions.dockerfile.data.html_url%"
 
-  - title: Triggering Our Pipeline
-    description: Time to see the magic happen
+  # step 3
+  - title: Trigger the pipeline
+    description: Make a commit and watch the pipeline work through GitHub Actions.
     event: pull_request.synchronize
     actions:
       - type: respond
         with: 01.4_Trigger-Docker-Build.md
 
-  - title: Viewing The Workflow
-    description: Verify if the Docker workflow was successful or not
+  # step 4
+  - title: Viewing the Workflow
+    description: Verify if the Docker workflow was successful or not.
     event: check_suite.completed
     actions:
       - type: gate
@@ -133,9 +137,22 @@ steps:
       #       with: 01.5_Check-Suite-Fail.md
       #       issue: Add a Dockerfile
 
+      
+      - type: createIssue
+        title: Consuming The Newly Created Docker Image
+        body: 02.0_Pull-Run-Image.md
+        comments:
+          - 02.1_Docker-Login.md
+          - 02.2_Docker-Pull.md
+          - 02.3_Docker-Run.md
+          - Done.md
+        action_id: nextUrl
+
       - type: respond
         with: 01.6_Success.md
         issue: Add a Dockerfile
+        data:
+          nextUrl: '%actions.nextUrl.data.html_url%'
 
       - type: mergePullRequest
         pullRequest: Add a Dockerfile
@@ -151,8 +168,11 @@ steps:
           - 02.2_Docker-Pull.md
           - 02.3_Docker-Run.md
           - Done.md
-  # - title: Using the Image
-  #   description: run our image locally
+        action_id: nextUrl
+
+    # step 5
+  # - title: Using the image
+  #   description: Run the image locally.
   #   event: pull_request.closed
   #   actions:
   #     - type: gate

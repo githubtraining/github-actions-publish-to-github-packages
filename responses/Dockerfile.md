@@ -1,6 +1,5 @@
 # Creating a Dockerfile 🐳
 
-You may have noticed that your workflow didn't run as expected just yet.  As you may have guessed, the reason is that we don't yet have a `Dockerfile` in our repository!
+You may have noticed that your workflow didn't run as expected. That's because we don't have a `Dockerfile` in our repository yet!
 
-We are going to use this Pull Request to add it.  I'll leave a comment to help you with this step 😄
-
+We will add a `Dockerfile` in this pull request. I'll leave a comment with instructions to help you. 😄
