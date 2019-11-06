@@ -1,4 +1,4 @@
-title: Using GitHub Actions for CD
+title: CD: Publishing a Docker Image to GPR
 tagline: Automate CD with GitHub Actions
 description: >-
   This course will walk you through using GitHub Actions to get your code in a
