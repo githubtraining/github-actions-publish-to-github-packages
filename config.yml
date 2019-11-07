@@ -1,11 +1,11 @@
-title: "CD: Publishing a Docker Image to GPR"
-tagline: Automate CD with GitHub Actions
+title: "GitHub Actions: Publish to GitHub Package Registry"
+tagline: Use GitHub Actions to push a deployable artifact to GitHub Package Registry
 description: >-
   This course will walk you through using GitHub Actions to get your code in a
   deployable state once your CI workflows have completed.
 template:
   repo: using-github-actions-for-cd-template
-  name: using-github-actions-for-cd
+  name: github-actions-for-packages
 before:
   - type: createPullRequest
     title: Setting Up CI
