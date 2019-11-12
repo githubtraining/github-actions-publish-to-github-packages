@@ -1,5 +1,5 @@
-GitHub Actions makes it easier than ever to incorporate continuous delivery (CD) into your repositories.​  This course will teach you what is needed to test and deliver artifacts that are ready for deployment.
-​
+GitHub Actions makes it easier than ever to incorporate continuous delivery (CD) into your repositories.  This course will teach you what is needed to test and deliver artifacts that are ready for deployment.
+
 After taking this course, you'll be able to:
 
 - Describe CD and why it is necessary
