@@ -1,4 +1,4 @@
-title: "Publish a Docker image to the GitHub Package Registry"
+title: "GitHub Actions: Publish to GitHub Package Registry"
 tagline: Use GitHub Actions to push a deployable artifact to GitHub Package Registry
 description: >-
   This course will walk you through using GitHub Actions to get your code in a
