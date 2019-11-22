@@ -6,7 +6,7 @@ This repository powers the Learning Lab course [_GitHub Actions: Publish to GitH
 
 Every Learning Lab course is made up of:
 - a [course repository](https://github.com/githubtraining/github-actions-publish-to-github-packages), and
-- a [template repository](https://github.com/githubtraining/using-github-actions-for-cd-template)
+- a [template repository](https://github.com/githubtraining/github-actions-publish-to-github-packages-template)
 
 The course repository is written in YAML and Markdown. The template repository could be written in any language that supports the learning objectives.
 
