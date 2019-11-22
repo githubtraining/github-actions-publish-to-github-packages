@@ -4,7 +4,7 @@ description: >-
   This course will walk you through using GitHub Actions to get your code in a
   deployable state once your CI workflows have completed.
 template:
-  repo: using-github-actions-for-cd-template
+  repo: github-actions-publish-to-github-packages-template
   name: github-actions-for-packages
 before:
   - type: createPullRequest
