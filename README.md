@@ -1,12 +1,12 @@
 <p align="center"><a href="https://lab.github.com/"><img alt="Learning Lab bot" src="https://user-images.githubusercontent.com/16547949/62085817-83232580-b22a-11e9-8693-7c54205b04e5.png"></a></p>
 
-<h1 align="center">Course: Using GitHub Actions for CD </h1>
+<h1 align="center">Course: GitHub Actions: Publish to GitHub Packages</h1>
 
-This repository powers the Learning Lab course [_Using GitHub Actions for CD_](https://lab.github.com/githubtraining/using-github-actions-for-cd). 
+This repository powers the Learning Lab course [_GitHub Actions: Publish to GitHub Packages_](https://lab.github.com/githubtraining/github-actions:-publish-to-github-packages). 
 
 Every Learning Lab course is made up of:
-- a [course repository](https://github.com/githubtraining/using-github-actions-for-cd), and
-- a [template repository](https://github.com/githubtraining/using-github-actions-for-cd-template)
+- a [course repository](https://github.com/githubtraining/github-actions-publish-to-github-packages), and
+- a [template repository](https://github.com/githubtraining/github-actions-publish-to-github-packages-template)
 
 The course repository is written in YAML and Markdown. The template repository could be written in any language that supports the learning objectives.
 

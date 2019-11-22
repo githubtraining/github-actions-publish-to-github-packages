@@ -1,10 +1,10 @@
-title: "GitHub Actions: Publish to GitHub Package Registry"
-tagline: Use GitHub Actions to push a deployable artifact to GitHub Package Registry
+title: "GitHub Actions: Publish to GitHub Packages"
+tagline: Use GitHub Actions to push a deployable artifact to GitHub Packages
 description: >-
   This course will walk you through using GitHub Actions to get your code in a
   deployable state once your CI workflows have completed.
 template:
-  repo: using-github-actions-for-cd-template
+  repo: github-actions-publish-to-github-packages-template
   name: github-actions-for-packages
 before:
   - type: createPullRequest

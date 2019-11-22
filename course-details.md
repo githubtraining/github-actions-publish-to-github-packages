@@ -5,7 +5,7 @@ After taking this course, you'll be able to:
 - Describe CD and why it is necessary
 - Use and customize a repository workflow
 - Create CD workflows that matches the team's needs and behaviors
-- Use the repository's source code to build artifacts and store them in the GitHub Package Registry
+- Use the repository's source code to build artifacts and store them in the GitHub Packages
 - Save repository build artifacts
 - Access saved build artifacts
 
