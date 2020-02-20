@@ -112,8 +112,8 @@ steps:
         with: 01.4_Trigger-Docker-Build.md
 
   # step 4
-  - title: Viewing the Workflow
-    description: Verify if the Docker workflow was successful or not.
+  - title: View the workflow
+    description: Verify whether the Docker workflow was successful.
     event: check_suite.completed
     actions:
       - type: gate
