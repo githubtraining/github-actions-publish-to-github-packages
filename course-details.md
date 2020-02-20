@@ -21,5 +21,12 @@ We recommend you first complete the following courses:
 - [GitHub Actions: Continuous Integration](https://lab.github.com/githubtraining/github-actions:-continuous-integration)
 
 # Projects used
+This makes use of the following open source projects. Consider exploring these repos and maybe even making contributions!
+
+- [actions/checkout](https://github.com/actions/checkout): Action for checking out a repo
+- [actions/upload-artifact](https://github.com/actions/upload-artifact): Upload artifacts from GitHub's built-in artifact storage.
+- [actions/download-artifact](https://github.com/actions/download-artifact): Download artifacts from GitHub's built-in artifact storage.
+- [actions/setup-node](https://github.com/actions/setup-node): Set up your GitHub Actions workflow with a specific version of node.js
+- [mattdavis0351/actions/docker-gpr](https://github.com/mattdavis0351/actions/tree/master/docker-gpr): A GitHub Action to upload Docker images to the GitHub Package Registry.
 
 # Audience
