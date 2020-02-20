@@ -12,8 +12,6 @@ After taking this course, you'll be able to:
 - Save repository build artifacts
 - Access saved build artifacts
 
-This course has a dedicated message board on the [GitHub Community]({{ communityBoard }}) website. If you want to discuss this course with GitHub Trainers or other participants create a post over there. The message board can also be used to troubleshoot any issue you encounter while taking this course.
-
 # What you'll build
 
 # Prerequisites
