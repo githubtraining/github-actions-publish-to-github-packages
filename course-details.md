@@ -1,5 +1,8 @@
+# Course description
+
 GitHub Actions makes it easier than ever to incorporate continuous delivery (CD) into your repositories.  This course will teach you what is needed to test and deliver artifacts that are ready for deployment.
 
+# What you'll learn
 After taking this course, you'll be able to:
 
 - Describe CD and why it is necessary
@@ -10,3 +13,15 @@ After taking this course, you'll be able to:
 - Access saved build artifacts
 
 This course has a dedicated message board on the [GitHub Community]({{ communityBoard }}) website. If you want to discuss this course with GitHub Trainers or other participants create a post over there. The message board can also be used to troubleshoot any issue you encounter while taking this course.
+
+# What you'll build
+
+# Prerequisites
+
+We recommend you first complete the following courses:
+- [Hello, GitHub Actions!](https://lab.github.com/github/hello-github-actions!)
+- [GitHub Actions: Continuous Integration](https://lab.github.com/githubtraining/github-actions:-continuous-integration)
+
+# Projects used
+
+# Audience
