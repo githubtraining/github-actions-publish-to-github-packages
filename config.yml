@@ -203,3 +203,7 @@ steps:
   #     - type: respond
   #       with: 01.5_Check-Suite-Fail.md
   #       issue: Add a Dockerfile
+
+tags: [
+  "GitHub Actions", "GitHub Packages", "Deployment", "Workflows", "Docker"
+]
