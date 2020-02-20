@@ -36,3 +36,5 @@ This makes use of the following open source projects. Consider exploring these r
 - [mattdavis0351/actions/docker-gpr](https://github.com/mattdavis0351/actions/tree/master/docker-gpr): A GitHub Action to upload Docker images to the GitHub Package Registry.
 
 # Audience
+
+Developers, DevOps engineers, full stack developers, cloud engineers
