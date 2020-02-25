@@ -1,5 +1,13 @@
 GitHub Actions makes it easier than ever to incorporate continuous delivery (CD) into your repositories.  This course will teach you what is needed to test and deliver artifacts that are ready for deployment.
 
+## What you'll learn
+
+We'll answer common questions like:
+
+- What is GitHub Packages? 
+- What role does package management play in the software development lifecycle? 
+- What is a container, a virtual machine, and Docker? 
+
 After taking this course, you'll be able to:
 
 - Describe CD and why it is necessary
@@ -9,4 +17,29 @@ After taking this course, you'll be able to:
 - Save repository build artifacts
 - Access saved build artifacts
 
-This course has a dedicated message board on the [GitHub Community]({{ communityBoard }}) website. If you want to discuss this course with GitHub Trainers or other participants create a post over there. The message board can also be used to troubleshoot any issue you encounter while taking this course.
+## What you'll build
+
+![GIF of a pull request, clicking on a commit status, shows logs of a package publishing, then shows package on the GitHub repository](https://user-images.githubusercontent.com/16547949/74983056-51122480-5403-11ea-8c86-29c42e69fb87.gif)
+
+- Completed [source repository](https://github.com/githubtraining/github-actions-for-packages-demo)
+- GitHub Actions [workflow](https://github.com/githubtraining/github-actions-for-packages-demo/runs/458940996?check_suite_focus=true) for creating the Docker image, tagging, and pushing to GitHub Packages
+- [Docker image](https://github.com/githubtraining/github-actions-for-packages-demo/packages/133342) pushed to GitHub Packages
+
+## Prerequisites
+
+We recommend you first complete the following courses:
+- [Hello, GitHub Actions!](https://lab.github.com/github/hello-github-actions!)
+- [GitHub Actions: Continuous Integration](https://lab.github.com/githubtraining/github-actions:-continuous-integration)
+
+## Projects used
+This makes use of the following open source projects. Consider exploring these repos and maybe even making contributions!
+
+- [actions/checkout](https://github.com/actions/checkout): Action for checking out a repo
+- [actions/upload-artifact](https://github.com/actions/upload-artifact): Upload artifacts from GitHub's built-in artifact storage.
+- [actions/download-artifact](https://github.com/actions/download-artifact): Download artifacts from GitHub's built-in artifact storage.
+- [actions/setup-node](https://github.com/actions/setup-node): Set up your GitHub Actions workflow with a specific version of node.js
+- [mattdavis0351/actions/docker-gpr](https://github.com/mattdavis0351/actions/tree/master/docker-gpr): A GitHub Action to upload Docker images to the GitHub Package Registry.
+
+## Audience
+
+Developers, DevOps engineers, full stack developers, cloud engineers
