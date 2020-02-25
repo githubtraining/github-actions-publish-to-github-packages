@@ -1,6 +1,13 @@
 GitHub Actions makes it easier than ever to incorporate continuous delivery (CD) into your repositories.  This course will teach you what is needed to test and deliver artifacts that are ready for deployment.
 
 ## What you'll learn
+
+We'll answer common questions like:
+
+- What is GitHub Packages? 
+- What role does package management play in the software development lifecycle? 
+- What is a container, a virtual machine, and Docker? 
+
 After taking this course, you'll be able to:
 
 - Describe CD and why it is necessary
