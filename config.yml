@@ -1,5 +1,4 @@
 title: "GitHub Actions: Publish to GitHub Packages"
-tagline: Use GitHub Actions to push a deployable artifact to GitHub Packages
 description: >-
   This course will walk you through using GitHub Actions to get your code in a
   deployable state once your CI workflows have completed.
@@ -112,8 +111,8 @@ steps:
         with: 01.4_Trigger-Docker-Build.md
 
   # step 4
-  - title: Viewing the Workflow
-    description: Verify if the Docker workflow was successful or not.
+  - title: View the workflow
+    description: Verify whether the Docker workflow was successful.
     event: check_suite.completed
     actions:
       - type: gate
@@ -203,3 +202,7 @@ steps:
   #     - type: respond
   #       with: 01.5_Check-Suite-Fail.md
   #       issue: Add a Dockerfile
+
+tags: [
+  "GitHub Actions", "GitHub Packages", "Deployment", "Workflows", "Docker"
+]
