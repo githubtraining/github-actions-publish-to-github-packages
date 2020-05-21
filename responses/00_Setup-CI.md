@@ -4,8 +4,6 @@ Welcome to the Learning Lab course "Using GitHub Actions for CD". What is **CD**
 
 Before you get started, it's important that you are comfortable with a few skills. We recommend going through the [Introduction to GitHub Learning Lab course](https://lab.github.com/githubtraining/introduction-to-github/) and the [Hello, GitHub Actions! Learning Lab course](https://lab.github.com/github/hello-github-actions!) before beginning this one. 
 
-You'll also need to [sign up for GitHub Actions](https://github.com/features/actions/signup/). 
-
 Other experience with workflow automation will help, but are not necessary to complete this course.
 
 ### Set up CI Workflow
