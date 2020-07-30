@@ -1,12 +1,12 @@
-GitHub Actions makes it easier than ever to incorporate continuous delivery (CD) into your repositories.  This course will teach you what is needed to test and deliver artifacts that are ready for deployment.
+GitHub Actions makes it easier than ever to incorporate continuous delivery (CD) into your repositories. This course will teach you what is needed to test and deliver artifacts that are ready for deployment.
 
 ## What you'll learn
 
 We'll answer common questions like:
 
-- What is GitHub Packages? 
-- What role does package management play in the software development lifecycle? 
-- What is a container, a virtual machine, and Docker? 
+- What is GitHub Packages?
+- What role does package management play in the software development lifecycle?
+- What is a container, a virtual machine, and Docker?
 
 After taking this course, you'll be able to:
 
@@ -28,17 +28,19 @@ After taking this course, you'll be able to:
 ## Prerequisites
 
 We recommend you first complete the following courses:
+
 - [Hello, GitHub Actions!](https://lab.github.com/github/hello-github-actions!)
 - [GitHub Actions: Continuous Integration](https://lab.github.com/githubtraining/github-actions:-continuous-integration)
 
 ## Projects used
+
 This makes use of the following open source projects. Consider exploring these repos and maybe even making contributions!
 
 - [actions/checkout](https://github.com/actions/checkout): Action for checking out a repo
 - [actions/upload-artifact](https://github.com/actions/upload-artifact): Upload artifacts from GitHub's built-in artifact storage.
 - [actions/download-artifact](https://github.com/actions/download-artifact): Download artifacts from GitHub's built-in artifact storage.
 - [actions/setup-node](https://github.com/actions/setup-node): Set up your GitHub Actions workflow with a specific version of node.js
-- [mattdavis0351/actions/docker-gpr](https://github.com/mattdavis0351/actions/tree/master/docker-gpr): A GitHub Action to upload Docker images to the GitHub Package Registry.
+- [docker/build-and-push-docker-images](https://github.com/marketplace/actions/build-and-push-docker-images): A GitHub Action to upload Docker images.
 
 ## Audience
 
