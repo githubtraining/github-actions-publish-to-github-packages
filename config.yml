@@ -15,10 +15,10 @@ before:
 
 steps:
   # step 1
-  - title:  Move the workflow file
+  - title: Move the workflow file
     description: Place the CI workflow file in the proper directory.
     event: pull_request.synchronize
-    link: '{{ repoUrl }}/pull/1'
+    link: "{{ repoUrl }}/pull/1"
     actions:
       - type: getTree
         action_id: tree
@@ -137,7 +137,6 @@ steps:
       #       with: 01.5_Check-Suite-Fail.md
       #       issue: Add a Dockerfile
 
-      
       - type: createIssue
         title: Consuming The Newly Created Docker Image
         body: 02.0_Pull-Run-Image.md
@@ -152,7 +151,7 @@ steps:
         with: 01.6_Success.md
         issue: Add a Dockerfile
         data:
-          nextUrl: '%actions.nextUrl.data.html_url%'
+          nextUrl: "%actions.nextUrl.data.html_url%"
 
       - type: mergePullRequest
         pullRequest: Add a Dockerfile
@@ -203,6 +202,4 @@ steps:
   #       with: 01.5_Check-Suite-Fail.md
   #       issue: Add a Dockerfile
 
-tags: [
-  "GitHub Actions", "GitHub Packages", "Deployment", "Workflows", "Docker"
-]
+tags: ["GitHub Actions", "GitHub Packages", "Deployment", "Workflows", "Docker"]
