@@ -39,7 +39,7 @@ steps:
         branch: ci-workflow
 
       - type: mergeBranch
-        head: master
+        head: main
         base: docker-workflow
 
       - type: createPullRequest
@@ -48,7 +48,7 @@ steps:
         head: docker-workflow
         action_id: dockerworkflowpr
         data:
-          workflowUrl: "%payload.repository.html_url%/edit/master/.github/workflows/ci-workflow.yml"
+          workflowUrl: "%payload.repository.html_url%/edit/main/.github/workflows/ci-workflow.yml"
         # workflowUrl sill not accessible in response below
         # respond also breaks if a use a title vs number
       - type: respond
@@ -86,7 +86,7 @@ steps:
         branch: docker-workflow
 
       - type: mergeBranch
-        head: master
+        head: main
         base: add-dockerfile
 
       - type: createPullRequest

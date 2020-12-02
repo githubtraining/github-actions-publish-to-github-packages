@@ -14,7 +14,7 @@ First, take a moment to examine the image below. It shows the relationship betwe
 
 ![](https://i.imgur.com/xZCkjmU.png)
 
-**Continuous integration** (CI) is a practice where developers  integrate code into a shared branch several times per day.  The shared branch is sometimes referred to as **trunk**, but on Git, it's named **master**. To integrate code, developers **commit** on other Git branches, **push** their changes, and **merge** to master through **pull requests**. 
+**Continuous integration** (CI) is a practice where developers  integrate code into a shared branch several times per day.  The shared branch is sometimes referred to as **trunk**, but on Git, it's named **main**. To integrate code, developers **commit** on other Git branches, **push** their changes, and **merge** to main through **pull requests**. 
 
 Automated events take place throughout this process. These events can range from running tests or deployments to cross-linking to relevant threads. Here's an example that we will use:
 
